@@ -11,3 +11,6 @@ wheels/
 
 # Secrets
 .env
+
+# Generated FAISS index (rebuilt from the PDFs)
+faiss_index/

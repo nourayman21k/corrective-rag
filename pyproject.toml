@@ -1,7 +1,7 @@
 [project]
 name = "corrective-rag"
 version = "0.1.0"
-description = "Add your description here"
+description = "Corrective RAG (CRAG) over ML research papers with LangGraph, Groq and a Streamlit UI"
 readme = "README.md"
 authors = [
     { name = "nourayman21k", email = "nour.ayman.fcis@gmail.com" }
@@ -29,6 +29,7 @@ dependencies = [
     "python-dotenv>=1.2.3",
     "sentence-transformers>=6.1.0",
     "streamlit>=1.65.0",
+    "torch>=2.14.1",
     "uvicorn>=0.53.0",
     "wikipedia>=1.4.0",
 ]
@@ -41,6 +42,15 @@ dev = [
     "comm>=0.2.3",
     "ipykernel>=7.3.0",
 ]
+
+# CPU-only PyTorch: avoids pulling the multi-GB CUDA build on Linux (Docker)
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]

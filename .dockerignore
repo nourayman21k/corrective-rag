@@ -1,0 +1,9 @@
+.env
+.venv
+.git
+.gitignore
+__pycache__/
+*.py[oc]
+faiss_index/
+*.ipynb
+.ipynb_checkpoints/
